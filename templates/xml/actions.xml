@@ -50,6 +50,7 @@
 		set(layer[thumbsicon].visible,false);
 		set(layer[arrow].visible,false);
 		set(layer[skin_logo].visible,false);
+		set(layer[thumbs].visible,false);
 	</action>-->
 
 
@@ -57,25 +58,26 @@
 	
 	<action name="showall">
 		switch_sound();
-		set(plugin[openfs].visible,true);
-		set(plugin[closefs].visible,false);
-		set(plugin[right].visible,true);
-		set(plugin[left].visible,true);
-		set(plugin[down].visible,true);
-		set(plugin[up].visible,true);
-		set(plugin[in].visible,true);
-		set(plugin[out].visible,true);
-		set(plugin[krpanologo].visible,true);
-		set(plugin[hideall].visible,true);
-		set(plugin[showall].visible,false);
-		set(plugin[showmap].visible,true);
-		set(plugin[dragmode].visible,true);
-		set(plugin[movemode].visible,false);
-		set(plugin[roton].visible,true);
-		set(plugin[rotoff].visible,false);
+		set(plugin[openfs].visible, true);
+		set(plugin[closefs].visible, false);
+		set(plugin[right].visible, true);
+		set(plugin[left].visible, true);
+		set(plugin[down].visible, true);
+		set(plugin[up].visible, true);
+		set(plugin[in].visible, true);
+		set(plugin[out].visible, true);
+		set(plugin[krpanologo].visible, true);
+		set(plugin[hideall].visible, true);
+		set(plugin[showall].visible, false);
+		set(plugin[showmap].visible, true);
+		set(plugin[dragmode].visible, true);
+		set(plugin[movemode].visible, false);
+		set(plugin[roton].visible, true);
+		set(plugin[rotoff].visible, false);
 		set(layer[thumbsicon].visible,true);
-		set(layer[arrow].visible,true);
+		set(layer[arrow].visible, true);
 		set(layer[skin_logo].visible, true);
+		set(layer[thumbs].visible, true);
 	</action>
 
 	<!-- actions to change the mouse cursor image -->
@@ -120,7 +122,7 @@
     </action>
 
 	<autorotate 
-		enabled  ="false"
+		enabled  ="true"
         waittime ="4"
         accel    ="3"
         speed    ="3"
@@ -130,15 +132,12 @@
 
 	<action name="thumbs_onclick">
 		if(layer[thumbs].state == 'closed', 
-			tween(layer[thumbs].x,0,1,easeOutQuint); set(layer[arrow].rotate, 180), 
-			tween(layer[thumbs].x,-152,1,easeOutQuint); set(layer[arrow].rotate, 0)); 
+			tween(layer[thumbs].x,0,1,easeOutQuint); set(layer[arrow].rotate, 180); set(layer[arrow].x, -15), 
+			tween(layer[thumbs].x,-152,1,easeOutQuint); set(layer[arrow].rotate, 0); set(layer[arrow].x, -10)); 
 			switch(layer[thumbs].state,'closed','opened');
 	</action>
 
 	<action name="thumb_onclick">
-		tween(layer[thumbs].x,-152,1,easeOutQuint,wait);
-		set(layer[thumbs].state,'closed');
-		set(layer[arrow].rotate, 0);
 		loadscene(get(linkedscene), null, MERGE|KEEPPLUGIN, BLEND(0.5));
 	</action>
 
