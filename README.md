@@ -1,0 +1,4 @@
+newKrpanoTools
+==============
+
+Modyfied krpanotools
