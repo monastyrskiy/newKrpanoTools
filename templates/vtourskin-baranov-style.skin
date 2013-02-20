@@ -1,0 +1,68 @@
+# Virtual Tour Skin
+# - Button Bar
+# - Scene+Pano Title
+# - Previous/Next Scene Buttons
+# - Show/Hide Skin Buttons
+# - Hotspots Style
+# - Scrolling Thumbnails
+# - Bingmaps Plugin
+# - Gyroscope Plugin
+# - Retina compatible
+# - Android compatible
+# - Different Mobile Layout
+# - Virtual Tour Editor compatible
+# krpano 1.0.8.15
+
+xmltemplate=xml/vtour_baranov_style.xml
+xmltemplate_scene=xml/vtour_scenetemplate.xml
+xmltemplate_view=xml/vtour_viewtemplate.xml
+xmltemplate_hotspot=xml/vtour_hotspottemplate.xml
+
+xmltemplate_additional_file=xml/actions.xml
+xmltemplate_additional_file=xml/skin/baranov_style_skin.xml
+xmltemplate_additional_file=xml/skin/projections-contextmenu.xml
+
+#xmltemplate_additional_file=xml/skin/vtourskin.png
+xmltemplate_additional_file=xml/skin/vtourskin_thumbborder.png
+xmltemplate_additional_file=xml/skin/vtourskin_hotspot.png
+xmltemplate_additional_file=xml/skin/vtourskin_mapspot.png
+xmltemplate_additional_file=xml/skin/vtourskin_mapspotactive.png
+
+xmltemplate_additional_file=xml/plugins/scrollarea.swf
+xmltemplate_additional_file=xml/plugins/scrollarea.js
+xmltemplate_additional_file=xml/plugins/bingmaps.swf
+xmltemplate_additional_file=xml/plugins/bingmaps.js
+xmltemplate_additional_file=xml/plugins/bingmaps.license.xml
+xmltemplate_additional_file=xml/plugins/textfield.swf
+xmltemplate_additional_file=xml/plugins/gyro.js
+
+# Buttons
+xmltemplate_additional_file=xml/skin/btn_up.jpg
+xmltemplate_additional_file=xml/skin/btn_down.jpg
+xmltemplate_additional_file=xml/skin/btn_left.jpg
+xmltemplate_additional_file=xml/skin/btn_right.jpg
+xmltemplate_additional_file=xml/skin/showall.jpg
+xmltemplate_additional_file=xml/skin/hideall.jpg
+xmltemplate_additional_file=xml/skin/btn_plus.jpg
+xmltemplate_additional_file=xml/skin/btn_minus.jpg
+xmltemplate_additional_file=xml/skin/btn_openfs.jpg
+xmltemplate_additional_file=xml/skin/btn_closefs.jpg
+xmltemplate_additional_file=xml/skin/btn_drag_on.jpg
+xmltemplate_additional_file=xml/skin/btn_drag_off.jpg
+xmltemplate_additional_file=xml/skin/btn_autorotate_off.jpg
+xmltemplate_additional_file=xml/skin/btn_autorotate_on.jpg
+xmltemplate_additional_file=xml/skin/btn_sound_on.jpg
+xmltemplate_additional_file=xml/skin/btn_sound_off.jpg
+
+xmltemplate_additional_file=xml/skin/drag-cursors.png
+xmltemplate_additional_file=xml/skin/qtvr-cursors.png 
+
+xmltemplate_additional_file=xml/skin/logo.png
+
+# Thumb
+xmltemplate_additional_file=xml/skin/arrow.png
+xmltemplate_additional_file=xml/skin/slide.png
+xmltemplate_additional_file=xml/skin/strap.png
+xmltemplate_additional_file=xml/skin/thumb_scroll.png
+xmltemplate_additional_file=xml/skin/thumbs.png
+xmltemplate_additional_file=xml/skin/transparent.png

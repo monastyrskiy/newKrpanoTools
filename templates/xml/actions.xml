@@ -1,0 +1,164 @@
+<krpano version="1.0.8.15">
+
+	<events 
+		onenterfullscreen="set(plugin[openfs].visible,false); set(plugin[closefs].visible,true);"
+		onexitfullscreen="set(plugin[openfs].visible,true); set(plugin[closefs].visible,false);"
+	/>
+	
+	<!-- Sound -->
+	<action name="sound_on">
+ 		playsound(auto, %SWFPATH%/music/music.mp3, 0);
+		set(plugin[sound_on].visible, false);
+		set(plugin[sound_off].visible, true);
+	</action> 
+
+	<action name="sound_off"> 
+		stopallsounds();
+		set(plugin[sound_off].visible, false);
+		set(plugin[sound_on].visible, true);
+	</action> 
+
+	<action name="hideall">
+        set(plugin[hideall].visible,false);
+		set(plugin[showall].visible,true);
+		set(plugin[sound_off].visible,false);
+		set(plugin[sound_on].visible,false);
+		set(plugin[openfs].visible,false);
+		set(plugin[closefs].visible,false);
+		set(plugin[right].visible,false);
+		set(plugin[left].visible,false);
+		set(plugin[down].visible,false);
+		set(plugin[up].visible,false);
+		set(plugin[in].visible,false);
+		set(plugin[out].visible,false);
+		set(plugin[showmap].visible,false);
+		set(plugin[krpanologo].visible,false);
+		set(plugin[dragmode].visible,false);
+		set(plugin[movemode].visible,false);
+		set(plugin[roton].visible,false);
+		set(plugin[rotoff].visible,false);
+		set(layer[thumbsicon].visible,false);
+		set(layer[arrow].visible,false);
+		set(layer[skin_logo].visible,false);
+	</action>-->
+
+
+<!-- action SHOWALL ,    Lensflares & Hotspots -->
+	
+	<action name="showall">
+		set(plugin[sound_off].visible,true);
+		set(plugin[sound_on].visible,false);
+		set(plugin[openfs].visible,true);
+		set(plugin[closefs].visible,false);
+		set(plugin[right].visible,true);
+		set(plugin[left].visible,true);
+		set(plugin[down].visible,true);
+		set(plugin[up].visible,true);
+		set(plugin[in].visible,true);
+		set(plugin[out].visible,true);
+		set(plugin[krpanologo].visible,true);
+		set(plugin[hideall].visible,true);
+		set(plugin[showall].visible,false);
+		set(plugin[showmap].visible,true);
+		set(plugin[dragmode].visible,true);
+		set(plugin[movemode].visible,false);
+		set(plugin[roton].visible,true);
+		set(plugin[rotoff].visible,false);
+		set(layer[thumbsicon].visible,true);
+		set(layer[arrow].visible,true);
+		set(layer[skin_logo].visible, true);
+	</action>
+
+	<!-- actions to change the mouse cursor image -->
+	<action name="dragcursor">
+		set(plugin[dragmode].visible, false);
+		set(plugin[movemode].visible, true);
+		set(control.mousetype, drag2D);
+		set(cursors.url, %CURRENTXML%/skin/drag-cursors.png);
+		set(cursors.type, drag);
+		set(cursors.move,  2|0|30|32);
+		set(cursors.drag, 37|0|30|32);
+	</action>
+
+	<action name="qtvrcursor">
+		set(plugin[dragmode].visible, true);
+		set(plugin[movemode].visible, false);
+		set(control.mousetype, moveto);
+		set(cursors.url, %SWFPATH%/skin/qtvr-cursors.png);
+		set(cursors.type, 8way);
+		set(cursors.move,       0|0|16|16);
+		set(cursors.drag,      16|0|16|16);
+		set(cursors.arrow_u,   32|0|16|16);
+		set(cursors.arrow_d,   48|0|16|16);
+		set(cursors.arrow_l,   64|0|16|16);
+		set(cursors.arrow_r,   80|0|16|16);
+		set(cursors.arrow_lu,  96|0|16|16);
+		set(cursors.arrow_ru, 112|0|16|16);
+		set(cursors.arrow_rd, 128|0|16|16);
+		set(cursors.arrow_ld, 144|0|16|16);
+	</action>
+
+	<action name="rotate_on">
+      set(plugin[roton].visible, true);
+      set(plugin[rotoff].visible, false);
+      switch(autorotate.enabled); 
+    </action>
+
+    <action name="rotate_off">
+      set(plugin[rotoff].visible, true);
+      set(plugin[roton].visible, false);   
+      switch(autorotate.enabled);
+    </action>
+
+	<autorotate 
+		enabled  ="false"
+        waittime ="4"
+        accel    ="3"
+        speed    ="3"
+        horizon  ="0"
+        tofov    ="NaN"
+    />
+
+	<action name="thumbs_onclick">
+		if(layer[thumbs].state == 'closed', 
+			tween(layer[thumbs].x,0,1,easeOutQuint); set(layer[arrow].rotate, 180), 
+			tween(layer[thumbs].x,-152,1,easeOutQuint); set(layer[arrow].rotate, 0)); 
+			switch(layer[thumbs].state,'closed','opened');
+	</action>
+
+	<action name="thumb_onclick">
+		tween(layer[thumbs].x,-152,1,easeOutQuint,wait);
+		set(layer[thumbs].state,'closed');
+		set(layer[arrow].rotate, 0);
+		loadscene(get(linkedscene), null, MERGE|KEEPPLUGIN, BLEND(0.5));
+	</action>
+
+<!--
+	set(layer[get(thumbname)].onhover, showtext(get(scene_title)); layer[scrollarea].scrolltocenter(layer[get(thumbname)].x, layer[get(thumbname)].y));
+-->
+
+	<action name="addthumbs">
+		mul(thumbarheight, scene.count, 140);
+		add(thumbarheight,10);
+		copy(layer[scrollarea].height, thumbarheight);
+		for(set(i,0), i LT scene.count, inc(i),
+			txtadd(thumbname,'thumb_',get(i));
+			addlayer(get(thumbname));
+			copy(layer[get(thumbname)].url, scene[get(i)].thumburl);
+			set(layer[get(thumbname)].keep, true);
+			set(layer[get(thumbname)].parent, 'scrollarea');
+			set(layer[get(thumbname)].align, lefttop);
+			mul(thumby, i, 140);
+			add(thumby, 10);
+			copy(layer[get(thumbname)].y, thumby);
+			set(layer[get(thumbname)].x, 15);
+			set(layer[get(thumbname)].width, 120);
+			set(layer[get(thumbname)].height, 120);
+			set(layer[get(thumbname)].linkedscene, get(scene[get(i)].name) );
+			set(layer[get(thumbname)].onclick, thumb_onclick());
+			set(scene_title, get(scene[get(i)].title));
+	
+		   );
+	</action>
+	
+</krpano>

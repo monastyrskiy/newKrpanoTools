@@ -1,0 +1,3 @@
+<!--Place your scene default view here-->
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="90" maxpixelzoom="1.0" fovmin="70" fovmax="140" [VIEWLIMITS]/>
