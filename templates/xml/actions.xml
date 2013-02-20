@@ -10,13 +10,23 @@
  		playsound(auto, %SWFPATH%/music/music.mp3, 0);
 		set(plugin[sound_on].visible, false);
 		set(plugin[sound_off].visible, true);
+		set(sound_state, true);
 	</action> 
 
 	<action name="sound_off"> 
 		stopallsounds();
 		set(plugin[sound_off].visible, false);
 		set(plugin[sound_on].visible, true);
+		set(sound_state, false);
 	</action> 
+
+	<action name="switch_sound">
+		if(sound_enabled == true, 
+			if(sound_state == true, 
+				set(plugin[sound_off].visible, true),
+				set(plugin[sound_on].visible, true)
+				));
+	</action>
 
 	<action name="hideall">
         set(plugin[hideall].visible,false);
@@ -46,8 +56,7 @@
 <!-- action SHOWALL ,    Lensflares & Hotspots -->
 	
 	<action name="showall">
-		set(plugin[sound_off].visible,true);
-		set(plugin[sound_on].visible,false);
+		switch_sound();
 		set(plugin[openfs].visible,true);
 		set(plugin[closefs].visible,false);
 		set(plugin[right].visible,true);
@@ -160,5 +169,12 @@
 	
 		   );
 	</action>
-	
+
+	<plugin name="soundinterface"
+	        url="%SWFPATH%/plugins/soundinterface.swf"
+	        alturl="%SWFPATH%/plugins/soundinterface.js"
+	        rootpath="%CURRENTXML%"
+	        preload="true" keep="true"
+	/>
+
 </krpano>

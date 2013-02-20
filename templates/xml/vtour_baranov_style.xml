@@ -5,7 +5,8 @@
 	<include url="skin/projections-contextmenu.xml"/>
 
 	<!-- set skin settings: bingmaps? gyro? -->
-	<skin_settings bingmaps="[HAVEGPS]" bingmaps_key="" bingmaps_zoombuttons="false"
+	<skin_settings bingmaps="false" bingmaps_key="Aib93qvnwqad0p54yH6FeFy1N5Nj7zBPsx7SFyikvi7hpYNkZh3g7vDvctYTVvkF" 
+				   bingmaps_zoombuttons="false"
 	               gyro="true"
 	               thumbsopened="false"
 	               tooltips_thumbs="true" tooltips_hotspots="true" tooltips_mapspots="true"
@@ -13,18 +14,33 @@
 	               />
 
 	<!-- set optional skin logo url -->
-	<layer name="skin_logo" 
-		url="skin/logo.png" x="5" y="5" align="righttop" scale="1" onclick="openurl('http://sergeybaranov.ru', _blank);"
-		onhover="showtext('Перейти на сайт', buttonstyle)"
-	/>
+	<layer name="skin_logo"
+		url="skin/logo.png" x="5" y="5" align="righttop" scale="1" onclick="openurl('http://sergeybaranov.ru', _blank)"
+		keep="true" visible="true" onhover="showtext('Перейти на сайт', buttonstyle)">
+	</layer>
+
 
 	<action name="startup">
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE);
 
+		<!-- Слайдер -->
 		addthumbs();
+		
+		<!-- Курсоры -->
 		qtvrcursor();
+		
+		<!-- Звук выключен
 		sound_off();
+	-->
+		<!-- Кнопка звука выключена, если нужна - поменять false на true -->
+		set(sound_enabled, true);
+
+		<!-- Звук выключен, чтобы включить - поменять false на true -->
+		set(sound_state, false);
+		
+		switch_sound();
+		if(sound_state == true, sound_on());
 	</action>
 
 	[SCENES]

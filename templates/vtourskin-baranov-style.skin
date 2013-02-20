@@ -32,9 +32,10 @@ xmltemplate_additional_file=xml/plugins/scrollarea.swf
 xmltemplate_additional_file=xml/plugins/scrollarea.js
 xmltemplate_additional_file=xml/plugins/bingmaps.swf
 xmltemplate_additional_file=xml/plugins/bingmaps.js
-xmltemplate_additional_file=xml/plugins/bingmaps.license.xml
 xmltemplate_additional_file=xml/plugins/textfield.swf
 xmltemplate_additional_file=xml/plugins/gyro.js
+xmltemplate_additional_file=xml/plugins/soundinterface.js
+xmltemplate_additional_file=xml/plugins/soundinterface.swf
 
 # Buttons
 xmltemplate_additional_file=xml/skin/btn_up.jpg
