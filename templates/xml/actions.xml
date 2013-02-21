@@ -122,7 +122,7 @@
     </action>
 
 	<autorotate 
-		enabled  ="true"
+		enabled  ="false"
         waittime ="4"
         accel    ="3"
         speed    ="3"
@@ -132,8 +132,8 @@
 
 	<action name="thumbs_onclick">
 		if(layer[thumbs].state == 'closed', 
-			tween(layer[thumbs].x,0,1,easeOutQuint); set(layer[arrow].rotate, 180); set(layer[arrow].x, -15), 
-			tween(layer[thumbs].x,-152,1,easeOutQuint); set(layer[arrow].rotate, 0); set(layer[arrow].x, -10)); 
+			tween(layer[thumbs].x, 0, 1,easeOutQuint); set(layer[arrow].rotate, 180); set(layer[arrow].x, -15), 
+			tween(layer[thumbs].x, -157, 1,easeOutQuint); set(layer[arrow].rotate, 0); set(layer[arrow].x, -10)); 
 			switch(layer[thumbs].state,'closed','opened');
 	</action>
 
@@ -149,24 +149,40 @@
 		mul(thumbarheight, scene.count, 140);
 		add(thumbarheight,10);
 		copy(layer[scrollarea].height, thumbarheight);
-		for(set(i,0), i LT scene.count, inc(i),
-			txtadd(thumbname,'thumb_',get(i));
+		for(set(i, 0), i LT scene.count, inc(i),
+			txtadd(thumbname,'thumb_', get(i));
 			addlayer(get(thumbname));
 			copy(layer[get(thumbname)].url, scene[get(i)].thumburl);
 			set(layer[get(thumbname)].keep, true);
 			set(layer[get(thumbname)].parent, 'scrollarea');
 			set(layer[get(thumbname)].align, lefttop);
-			mul(thumby, i, 140);
+			mul(thumby, i, 90);
 			add(thumby, 10);
 			copy(layer[get(thumbname)].y, thumby);
-			set(layer[get(thumbname)].x, 15);
+			set(layer[get(thumbname)].x, 17);
 			set(layer[get(thumbname)].width, 120);
-			set(layer[get(thumbname)].height, 120);
+			set(layer[get(thumbname)].height, 80);
 			set(layer[get(thumbname)].linkedscene, get(scene[get(i)].name) );
 			set(layer[get(thumbname)].onclick, thumb_onclick());
-			set(scene_title, get(scene[get(i)].title));
-	
+
+			set(scene[get(i)].thumb_name, get(thumbname));
+
+			set(layer[get(thumbname)].onover, magnify(get(scene[get(linkedscene)].thumb_name)));
+			set(layer[get(thumbname)].onout,  lie(get(scene[get(linkedscene)].thumb_name)));
+
+			set(layer[get(thumbname)].onhover, showtext(get(scene[get(linkedscene)].title)));
 		   );
+	</action>
+
+    <!-- action performed when mouse hovers over a thumbnail preview -->
+    <action name="magnify">
+		tween(layer[%1].alpha,  1.0, 0.3, easeInQuad);
+		tween(layer[%1].scale, 1.05, 0.3, easeInQuad);
+	</action>
+    <!-- action performed when mouse goes away from a thumbnail preview -->
+    <action name="lie">
+		tween(layer[%1].alpha, 0.8, 0.3, easeInQuad);
+		tween(layer[%1].scale, 1.0, 0.3, easeInQuad);
 	</action>
 
 	<plugin name="soundinterface"

@@ -15,7 +15,7 @@
 
 	<!-- set optional skin logo url -->
 	<layer name="skin_logo"
-		url="skin/logo.png" x="5" y="5" align="righttop" scale="1" onclick="openurl('http://sergeybaranov.ru', _blank)"
+		url="skin/logo.png" x="40" y="40" align="righttop" scale="1" onclick="openurl('http://sergeybaranov.ru', _blank)"
 		keep="true" visible="true" onhover="showtext('Перейти на сайт', buttonstyle)">
 	</layer>
 
@@ -30,9 +30,6 @@
 		<!-- Курсоры -->
 		qtvrcursor();
 		
-		<!-- Звук выключен
-		sound_off();
-	-->
 		<!-- Кнопка звука выключена, если нужна - поменять false на true -->
 		set(sound_enabled, true);
 

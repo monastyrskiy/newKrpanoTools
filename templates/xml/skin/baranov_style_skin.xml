@@ -79,13 +79,13 @@
  
 	
 	<!-- thumbs -->
-	<layer name="thumbs" keep="true" type="container" align="leftbottom" width="150" height="100%" x="-152" y="0" state="closed">
+	<layer name="thumbs" keep="true" type="container" align="leftbottom" width="155" height="100%" x="-157" y="0" state="closed">
 		<layer name="thumbsicon" url="strap.png" align="rightbottom" x="0" y="0" alpha="0.7" align="right" edge="left" onclick="thumbs_onclick()"/>
 		
 		<layer name="arrow" url="arrow.png" align="rightbottom" x="-10" y="0" alpha="0.7" align="right" edge="left" rotate="0" enabled="false"/>
 		
-		<layer name="thumbbar" keep="true" type="container" align="leftbottom" width="150" height="100%" x="0" y="0" bgcolor="0x6b6b6b" bgalpha="0.7">
-			<layer name="scrollarea" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" align="center" width="150" height="100%" direction="v" onloaded="setcenter(0,0);" />
+		<layer name="thumbbar" keep="true" type="container" align="leftbottom" width="155" height="100%" x="0" y="0" bgcolor="0x6b6b6b" bgalpha="0.7">
+			<layer name="scrollarea" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" align="center" width="155" height="100%" direction="v" onloaded="setcenter(0,0);" />
 		</layer>
 	</layer>
 	
