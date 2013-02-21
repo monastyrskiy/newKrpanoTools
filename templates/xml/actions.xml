@@ -1,8 +1,8 @@
 <krpano version="1.0.8.15">
 
 	<events 
-		onenterfullscreen="set(plugin[openfs].visible,false); set(plugin[closefs].visible,true);"
-		onexitfullscreen="set(plugin[openfs].visible,true); set(plugin[closefs].visible,false);"
+		onenterfullscreen="set(plugin[open_fs].visible, false); set(plugin[close_fs].visible, true)"
+		onexitfullscreen="set(plugin[open_fs].visible, true); set(plugin[close_fs].visible, false)"
 	/>
 	
 	<!-- Sound -->
@@ -33,8 +33,8 @@
 		set(plugin[showall].visible,true);
 		set(plugin[sound_off].visible,false);
 		set(plugin[sound_on].visible,false);
-		set(plugin[openfs].visible,false);
-		set(plugin[closefs].visible,false);
+		set(plugin[open_fs].visible,false);
+		set(plugin[close_fs].visible,false);
 		set(plugin[right].visible,false);
 		set(plugin[left].visible,false);
 		set(plugin[down].visible,false);
@@ -45,21 +45,35 @@
 		set(plugin[krpanologo].visible,false);
 		set(plugin[dragmode].visible,false);
 		set(plugin[movemode].visible,false);
-		set(plugin[roton].visible,false);
-		set(plugin[rotoff].visible,false);
+		set(plugin[rotate_on].visible,false);
+		set(plugin[rotate_off].visible,false);
 		set(layer[thumbsicon].visible,false);
 		set(layer[arrow].visible,false);
 		set(layer[skin_logo].visible,false);
 		set(layer[thumbs].visible,false);
-	</action>-->
+	</action>
 
 
 <!-- action SHOWALL ,    Lensflares & Hotspots -->
 	
 	<action name="showall">
 		switch_sound();
-		set(plugin[openfs].visible, true);
-		set(plugin[closefs].visible, false);
+		
+		if(fullscreen, 
+			set(plugin[close_fs].visible, true),
+			set(plugin[open_fs].visible, true);
+		);
+
+		if(autorotate.enabled,
+			set(plugin[rotate_on].visible, true),
+			set(plugin[rotate_off].visible, true);
+		);
+
+		if(dragmode,
+			set(plugin[movemode].visible, true),
+			set(plugin[dragmode].visible, true);
+		);
+		
 		set(plugin[right].visible, true);
 		set(plugin[left].visible, true);
 		set(plugin[down].visible, true);
@@ -70,10 +84,6 @@
 		set(plugin[hideall].visible, true);
 		set(plugin[showall].visible, false);
 		set(plugin[showmap].visible, true);
-		set(plugin[dragmode].visible, true);
-		set(plugin[movemode].visible, false);
-		set(plugin[roton].visible, true);
-		set(plugin[rotoff].visible, false);
 		set(layer[thumbsicon].visible,true);
 		set(layer[arrow].visible, true);
 		set(layer[skin_logo].visible, true);
@@ -89,6 +99,7 @@
 		set(cursors.type, drag);
 		set(cursors.move,  2|0|30|32);
 		set(cursors.drag, 37|0|30|32);
+		set(dragmode, true);
 	</action>
 
 	<action name="qtvrcursor">
@@ -107,27 +118,28 @@
 		set(cursors.arrow_ru, 112|0|16|16);
 		set(cursors.arrow_rd, 128|0|16|16);
 		set(cursors.arrow_ld, 144|0|16|16);
+		set(dragmode, false);
 	</action>
 
 	<action name="rotate_on">
-      set(plugin[roton].visible, true);
-      set(plugin[rotoff].visible, false);
+      set(plugin[rotate_on].visible, true);
+      set(plugin[rotate_off].visible, false);
       switch(autorotate.enabled); 
     </action>
 
     <action name="rotate_off">
-      set(plugin[rotoff].visible, true);
-      set(plugin[roton].visible, false);   
+      set(plugin[rotate_off].visible, true);
+      set(plugin[rotate_on].visible, false);   
       switch(autorotate.enabled);
     </action>
 
-	<autorotate 
-		enabled  ="false"
-        waittime ="4"
-        accel    ="3"
-        speed    ="3"
-        horizon  ="0"
-        tofov    ="NaN"
+	<autorotate
+		enabled  = "true"
+        waittime = "4"
+        accel    = "3"
+        speed    = "3"
+        horizon  = "0"
+        tofov    = "NaN"
     />
 
 	<action name="thumbs_onclick">
@@ -140,10 +152,6 @@
 	<action name="thumb_onclick">
 		loadscene(get(linkedscene), null, MERGE|KEEPPLUGIN, BLEND(0.5));
 	</action>
-
-<!--
-	set(layer[get(thumbname)].onhover, showtext(get(scene_title)); layer[scrollarea].scrolltocenter(layer[get(thumbname)].x, layer[get(thumbname)].y));
--->
 
 	<action name="addthumbs">
 		mul(thumbarheight, scene.count, 140);
@@ -170,7 +178,7 @@
 			set(layer[get(thumbname)].onover, magnify(get(scene[get(linkedscene)].thumb_name)));
 			set(layer[get(thumbname)].onout,  lie(get(scene[get(linkedscene)].thumb_name)));
 
-			set(layer[get(thumbname)].onhover, showtext(get(scene[get(linkedscene)].title)));
+			set(layer[get(thumbname)].onhover, showtext(get(scene[get(linkedscene)].title), buttonstyle));
 		   );
 	</action>
 

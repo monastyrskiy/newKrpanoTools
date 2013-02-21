@@ -38,6 +38,7 @@
 		
 		switch_sound();
 		if(sound_state == true, sound_on());
+		set(dragmode, false);
 	</action>
 
 	[SCENES]
