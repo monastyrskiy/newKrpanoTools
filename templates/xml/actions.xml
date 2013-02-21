@@ -3,8 +3,31 @@
 	<events 
 		onenterfullscreen="set(plugin[open_fs].visible, false); set(plugin[close_fs].visible, true)"
 		onexitfullscreen="set(plugin[open_fs].visible, true); set(plugin[close_fs].visible, false)"
+		onloadcomplete="onloadcomplete_action()"
 	/>
 	
+	<action name="onloadcomplete_action">
+		tween(layer[skin_logo].y, 40);
+		tween(plugin[sound_on].y, 40);
+		tween(plugin[sound_off].y, 40);
+		tween(plugin[in].y, 40);
+		tween(plugin[out].y, 40);
+		tween(plugin[left].y, 40);
+		tween(plugin[right].y, 40);
+		tween(plugin[up].y, 40);
+		tween(plugin[down].y, 40);
+		tween(plugin[open_fs].y, 40);
+		tween(plugin[close_fs].y, 40);
+		tween(plugin[movemode].y, 40);
+		tween(plugin[dragmode].y, 40);
+		tween(plugin[rotate_on].y, 40);
+		tween(plugin[rotate_off].y, 40);
+		tween(plugin[hideall].y, 40);
+		tween(plugin[showall].y, 40);
+		tween(plugin[thumbsicon].x, 0);
+		tween(plugin[arrow].x, -10);
+	</action>
+
 	<!-- Sound -->
 	<action name="sound_on">
  		playsound(auto, %SWFPATH%/music/music.mp3, 0);
