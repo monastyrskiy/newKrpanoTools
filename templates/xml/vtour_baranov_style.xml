@@ -27,7 +27,7 @@
 
 	<action name="startup">
 		showtext(get(data[text].content), textstyle);
-		
+
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE);
 
@@ -43,6 +43,9 @@
 		<!-- Звук выключен, чтобы включить - поменять false на true -->
 		set(sound_state, false);
 		
+		<!-- Автопрокрутка по умолчанию включена, чтобы выключить - поменять true на false -->
+		set(autorotate.enabled, true);
+
 		switch_sound();
 		if(sound_state == true, sound_on());
 		set(dragmode, false);

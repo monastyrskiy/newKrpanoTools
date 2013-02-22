@@ -1,15 +1,15 @@
 <krpano version="1.0.8.15">
 
 	<events 
-		onenterfullscreen="set(plugin[open_fs].visible, false); set(plugin[close_fs].visible, true)"
-		onexitfullscreen="set(plugin[open_fs].visible, true); set(plugin[close_fs].visible, false)"
+		onenterfullscreen="set(plugin[open_fs].y, -140); set(plugin[close_fs].y, 40)"
+		onexitfullscreen="set(plugin[open_fs].y, 40); set(plugin[close_fs].y, -140)"
 		onloadcomplete="onloadcomplete_action()"
 	/>
 	
 	<action name="onloadcomplete_action">
-		tween(layer[skin_logo].y, 40);
-		tween(plugin[sound_on].y, 40);
-		tween(plugin[sound_off].y, 40);
+		switch_sound();
+
+		tween(layer[skin_logo].y, 40);		
 		tween(plugin[in].y, 40);
 		tween(plugin[out].y, 40);
 		tween(plugin[left].y, 40);
@@ -17,11 +17,14 @@
 		tween(plugin[up].y, 40);
 		tween(plugin[down].y, 40);
 		tween(plugin[open_fs].y, 40);
-		tween(plugin[close_fs].y, 40);
-		tween(plugin[movemode].y, 40);
+
 		tween(plugin[dragmode].y, 40);
-		tween(plugin[rotate_on].y, 40);
-		tween(plugin[rotate_off].y, 40);
+
+		if(autorotate.enabled == true,
+			tween(plugin[rotate_on].y, 40),
+			tween(plugin[rotate_off].y, 40);
+		);
+
 		tween(plugin[hideall].y, 40);
 		tween(plugin[showall].y, 40);
 		tween(plugin[thumbsicon].x, 0);
@@ -31,49 +34,57 @@
 	<!-- Sound -->
 	<action name="sound_on">
  		playsound(auto, %SWFPATH%/music/music.mp3, 0);
-		set(plugin[sound_on].visible, false);
-		set(plugin[sound_off].visible, true);
+		set(plugin[sound_on].y, -140);
+		set(plugin[sound_off].y, 40);
 		set(sound_state, true);
 	</action> 
 
 	<action name="sound_off"> 
 		stopallsounds();
-		set(plugin[sound_off].visible, false);
-		set(plugin[sound_on].visible, true);
+		set(plugin[sound_off].y, -140);
+		set(plugin[sound_on].y, 40);
 		set(sound_state, false);
 	</action> 
 
 	<action name="switch_sound">
 		if(sound_enabled == true, 
 			if(sound_state == true, 
-				set(plugin[sound_off].visible, true),
-				set(plugin[sound_on].visible, true)
+				set(plugin[sound_off].visible, true); set(plugin[sound_on].y, -140); tween(plugin[sound_off].y, 40),
+				set(plugin[sound_on].visible, true); set(plugin[sound_off].y, -140); tween(plugin[sound_on].y, 40)
 				));
 	</action>
 
 	<action name="hideall">
         set(plugin[hideall].visible,false);
 		set(plugin[showall].visible,true);
-		set(plugin[sound_off].visible,false);
-		set(plugin[sound_on].visible,false);
-		set(plugin[open_fs].visible,false);
-		set(plugin[close_fs].visible,false);
-		set(plugin[right].visible,false);
-		set(plugin[left].visible,false);
-		set(plugin[down].visible,false);
-		set(plugin[up].visible,false);
-		set(plugin[in].visible,false);
-		set(plugin[out].visible,false);
-		set(plugin[showmap].visible,false);
-		set(plugin[krpanologo].visible,false);
-		set(plugin[dragmode].visible,false);
-		set(plugin[movemode].visible,false);
-		set(plugin[rotate_on].visible,false);
-		set(plugin[rotate_off].visible,false);
-		set(layer[thumbsicon].visible,false);
-		set(layer[arrow].visible,false);
-		set(layer[skin_logo].visible,false);
-		set(layer[thumbs].visible,false);
+
+		tween(plugin[sound_on].y, -140);
+		tween(plugin[sound_off].y, -140);
+		
+		tween(plugin[open_fs].y, -140);
+		tween(plugin[close_fs].y, -140);
+
+		tween(plugin[right].y, -140);
+		tween(plugin[left].y, -140);
+		tween(plugin[down].y, -140);
+		tween(plugin[up].y, -140);
+		tween(plugin[in].y, -140);
+		tween(plugin[out].y, -140);
+		
+
+		tween(layer[skin_logo].y, -140);
+
+		tween(plugin[dragmode].y, -140);
+		tween(plugin[movemode].y, -140);
+
+		tween(plugin[rotate_on].y, -140);
+		tween(plugin[rotate_off].y, -140);
+		
+		tween(layer[arrow].x, 40);
+		tween(plugin[thumbsicon].x, 40);
+
+		if(layer[thumbs].state == 'opened',
+			thumbs_onclick(););
 	</action>
 
 
@@ -81,42 +92,45 @@
 	
 	<action name="showall">
 		switch_sound();
-		
+
+		tween(layer[arrow].x, -10);
+		tween(plugin[thumbsicon].x, 0);
+
+		if(layer[thumbs].state == 'opened',
+			thumbs_onclick(););
+
 		if(fullscreen, 
-			set(plugin[close_fs].visible, true),
-			set(plugin[open_fs].visible, true);
+			tween(plugin[close_fs].y, 40),
+			tween(plugin[open_fs].y, 40);
 		);
 
 		if(autorotate.enabled,
-			set(plugin[rotate_on].visible, true),
-			set(plugin[rotate_off].visible, true);
+			tween(plugin[rotate_on].y, 40),
+			tween(plugin[rotate_off].y, 40);
 		);
 
 		if(dragmode,
-			set(plugin[movemode].visible, true),
-			set(plugin[dragmode].visible, true);
+			tween(plugin[movemode].y, 40),
+			tween(plugin[dragmode].y, 40);
 		);
 		
-		set(plugin[right].visible, true);
-		set(plugin[left].visible, true);
-		set(plugin[down].visible, true);
-		set(plugin[up].visible, true);
-		set(plugin[in].visible, true);
-		set(plugin[out].visible, true);
-		set(plugin[krpanologo].visible, true);
+		tween(plugin[right].y, 40);
+		tween(plugin[left].y, 40);
+		tween(plugin[down].y, 40);
+		tween(plugin[up].y, 40);
+		tween(plugin[in].y, 40);
+		tween(plugin[out].y, 40);
+
 		set(plugin[hideall].visible, true);
 		set(plugin[showall].visible, false);
-		set(plugin[showmap].visible, true);
-		set(layer[thumbsicon].visible,true);
-		set(layer[arrow].visible, true);
-		set(layer[skin_logo].visible, true);
-		set(layer[thumbs].visible, true);
+
+		tween(layer[skin_logo].y, 40);
 	</action>
 
 	<!-- actions to change the mouse cursor image -->
 	<action name="dragcursor">
-		set(plugin[dragmode].visible, false);
-		set(plugin[movemode].visible, true);
+		set(plugin[dragmode].y, -140);
+		set(plugin[movemode].y, 40);
 		set(control.mousetype, drag2D);
 		set(cursors.url, %CURRENTXML%/skin/drag-cursors.png);
 		set(cursors.type, drag);
@@ -126,8 +140,8 @@
 	</action>
 
 	<action name="qtvrcursor">
-		set(plugin[dragmode].visible, true);
-		set(plugin[movemode].visible, false);
+		set(plugin[dragmode].y, 40);
+		set(plugin[movemode].y, -140);
 		set(control.mousetype, moveto);
 		set(cursors.url, %SWFPATH%/skin/qtvr-cursors.png);
 		set(cursors.type, 8way);
@@ -145,14 +159,14 @@
 	</action>
 
 	<action name="rotate_on">
-      set(plugin[rotate_on].visible, true);
-      set(plugin[rotate_off].visible, false);
+      set(plugin[rotate_on].y, 40);
+      set(plugin[rotate_off].y, -140);
       switch(autorotate.enabled); 
     </action>
 
     <action name="rotate_off">
-      set(plugin[rotate_off].visible, true);
-      set(plugin[rotate_on].visible, false);   
+      set(plugin[rotate_off].y, 40);
+      set(plugin[rotate_on].y, -140);   
       switch(autorotate.enabled);
     </action>
 
