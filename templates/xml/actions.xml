@@ -16,7 +16,10 @@
 		tween(plugin[right].y, 40);
 		tween(plugin[up].y, 40);
 		tween(plugin[down].y, 40);
-		tween(plugin[open_fs].y, 40);
+		
+		ifnot(fullscreen,
+			tween(plugin[open_fs].y, 40);
+		);
 
 		tween(plugin[dragmode].y, 40);
 
@@ -28,7 +31,9 @@
 		tween(plugin[hideall].y, 40);
 		tween(plugin[showall].y, 40);
 		tween(plugin[thumbsicon].x, 0);
-		tween(plugin[arrow].x, -10);
+		if(layer[thumbs].state == 'closed',
+			tween(plugin[arrow].x, -10)
+		);
 	</action>
 
 	<!-- Sound -->
