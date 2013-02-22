@@ -36,17 +36,17 @@
 		
 		<!-- Курсоры -->
 		qtvrcursor();
+		set(plugin[dragmode].y, -140);
 		
 		<!-- Кнопка звука выключена, если нужна - поменять false на true -->
 		set(sound_enabled, true);
 
-		<!-- Звук выключен, чтобы включить - поменять false на true -->
-		set(sound_state, false);
-		
 		<!-- Автопрокрутка по умолчанию включена, чтобы выключить - поменять true на false -->
 		set(autorotate.enabled, true);
 
-		switch_sound();
+		<!-- Звук выключен, чтобы включить - поменять false на true -->
+		set(sound_state, false);
+		
 		if(sound_state == true, sound_on());
 		set(dragmode, false);
 	</action>
