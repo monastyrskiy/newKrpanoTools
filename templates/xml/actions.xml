@@ -101,9 +101,6 @@
 		tween(layer[arrow].x, -10);
 		tween(plugin[thumbsicon].x, 0);
 
-		if(layer[thumbs].state == 'opened',
-			thumbs_onclick(););
-
 		if(fullscreen, 
 			tween(plugin[close_fs].y, 40),
 			tween(plugin[open_fs].y, 40);
@@ -186,9 +183,9 @@
 
 	<action name="thumbs_onclick">
 		if(layer[thumbs].state == 'closed', 
-			tween(layer[thumbs].x, 0, 1,easeOutQuint); set(layer[arrow].rotate, 180); set(layer[arrow].x, -15), 
+			tween(layer[thumbs].x, 0, 1, easeOutQuint); set(layer[arrow].rotate, 180); set(layer[arrow].x, -15), 
 			tween(layer[thumbs].x, -157, 1,easeOutQuint); set(layer[arrow].rotate, 0); set(layer[arrow].x, -10)); 
-			switch(layer[thumbs].state,'closed','opened');
+			switch(layer[thumbs].state, 'closed', 'opened');
 	</action>
 
 	<action name="thumb_onclick">
