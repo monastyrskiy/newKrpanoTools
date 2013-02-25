@@ -66,18 +66,19 @@
 	           origin="cursor" edge="bottom" textalign="center" xoffset="0" yoffset="-3" noclip="true" showtime="0.1" fadetime="0.2" fadeintime="0.5" 
 	           />
 
-
-	<!-- android buttons and events -->
-	<plugin name="androidzoom_out"  devices="android|html5" keep="true" url="%SWFPATH%/skin/androidbuttons.jpg" alpha="0.5" crop="0|0|71|64"   align="rightbottom" x="88" y="10" ondown="set(crop,0|64|71|64);  set(fov_moveforce,+1);" onup="set(crop,0|0|71|64);  set(fov_moveforce,0);" />
-	<plugin name="androidzoom_in"  devices="android|html5"   keep="true" url="%SWFPATH%/skin/androidbuttons.jpg" alpha="0.5" crop="71|0|78|64"  align="rightbottom" x="10" y="10" ondown="set(crop,71|64|78|64); set(fov_moveforce,-1);" onup="set(crop,71|0|78|64); set(fov_moveforce,0);" />
-	<plugin name="androidfsbutton"  devices="android|html5"  keep="true" url="%SWFPATH%/skin/androidbuttons.jpg" alpha="0.5" crop="149|0|64|64" align="righttop"    x="0"  y="20"  onclick="switch(fullscreen);" />
-	<events name="androidfsbutton"  devices="android|html5"  keep="true" onenterfullscreen="set(plugin[androidfsbutton].crop,149|64|64|64);" onexitfullscreen="set(plugin[androidfsbutton].crop,149|0|64|64);" />
-
-
 	<!-- Giro iphone ipad -->
 	<plugin name="gyro" url="plugins/gyro.js" keep="true" enabled="true" camroll="true" friction="0.5" velastic="0.2" devices="html5" />
  
-	
+
+	<!-- Skin Hotspot Style (the hotspots need a 'linkedscene' attribute to be clickable) -->
+	<style name="skin_hotspotstyle" url="spots/hotspotwhite.swf" alturl="spots/spot_arrow.png" scale="0.8" edge="top" oy="0"
+	       onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );"
+	       onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );"
+    />
+
+    <!-- Skin Tooltips Textstyle -->
+	<textstyle name="SKIN_TOOLTIPS" font="Arial" fontsize="16" bold="true" italic="false" background="false" border="false" textcolor="0xFFFFFF" effect="dropshadow(1,45,0x000000,4,1);" fadeintime="0.1" fadetime="0.05" />
+
 	<!-- thumbs -->
 	<layer name="thumbs" keep="true" type="container" align="leftbottom" width="155" height="100%" x="-157" y="0" state="closed">		
 		<layer name="arrow" url="arrow.png" parent="thumbsicon" zorder="1" capture="false" align="rightbottom" x="40" y="0" alpha="0.9" align="right" edge="left" rotate="0" enabled="false"/>

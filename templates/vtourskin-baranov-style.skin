@@ -58,7 +58,10 @@ xmltemplate_additional_file=xml/skin/btn_sound_off.jpg
 xmltemplate_additional_file=xml/krpano_default_flares.jpg
 
 xmltemplate_additional_file=xml/skin/drag-cursors.png
-xmltemplate_additional_file=xml/skin/qtvr-cursors.png 
+xmltemplate_additional_file=xml/skin/qtvr-cursors.png
+
+xmltemplate_additional_file=xml/skin/spots/spot_arrow.png
+xmltemplate_additional_file=xml/skin/spots/hotspotwhite.swf
 
 xmltemplate_additional_file=xml/skin/logo.png
 
