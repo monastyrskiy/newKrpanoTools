@@ -54,6 +54,7 @@ xmltemplate_additional_file=xml/skin/btn_autorotate_off.jpg
 xmltemplate_additional_file=xml/skin/btn_autorotate_on.jpg
 xmltemplate_additional_file=xml/skin/btn_sound_on.jpg
 xmltemplate_additional_file=xml/skin/btn_sound_off.jpg
+xmltemplate_additional_file=xml/skin/androidbuttons.png
 
 xmltemplate_additional_file=xml/krpano_default_flares.jpg
 

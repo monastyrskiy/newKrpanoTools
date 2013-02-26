@@ -62,6 +62,12 @@
 	           origin="cursor" edge="bottom" textalign="center" xoffset="0" yoffset="-3" noclip="true" showtime="0.1" fadetime="0.2" fadeintime="0.5" 
 	           />
 
+	<!-- android buttons and events -->
+	<plugin name="androidzoom_out"  devices="android" keep="true" url="%SWFPATH%/skin/androidbuttons.png" alpha="0.5" crop="0|0|71|64"   align="rightbottom" x="88" y="10" ondown="set(crop,0|64|71|64);  set(fov_moveforce,+1);" onup="set(crop,0|0|71|64);  set(fov_moveforce,0);" />
+	<plugin name="androidzoom_in"  devices="android"   keep="true" url="%SWFPATH%/skin/androidbuttons.png" alpha="0.5" crop="71|0|78|64"  align="rightbottom" x="10" y="10" ondown="set(crop,71|64|78|64); set(fov_moveforce,-1);" onup="set(crop,71|0|78|64); set(fov_moveforce,0);" />
+	<plugin name="androidfsbutton"  devices="android"  keep="true" url="%SWFPATH%/skin/androidbuttons.png" alpha="0.5" crop="149|0|64|64" align="righttop"    x="0"  y="20"  onclick="switch(fullscreen);" />
+	<events name="androidfsbutton"  devices="android"  keep="true" onenterfullscreen="set(plugin[androidfsbutton].crop,149|64|64|64);" onexitfullscreen="set(plugin[androidfsbutton].crop,149|0|64|64);" />
+
 	<!-- Giro iphone ipad -->
 	<plugin name="gyro" url="%SWFPATH%/plugins/gyro.js" keep="true" enabled="true" camroll="true" friction="0.5" velastic="0.2" devices="html5" />
 
