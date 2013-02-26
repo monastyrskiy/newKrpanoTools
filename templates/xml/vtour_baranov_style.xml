@@ -19,15 +19,7 @@
 		keep="true" visible="true" onhover="showtext('Перейти на сайт', buttonstyle)">
 	</layer>
 
-	<data name="text">[b][font size="20"]Загрузка... [/b][br][/font]</data>
-
-	<textstyle name="textstyle"	        
-		font="Myriad Pro" origin="center" edge="center" yoffset="-70" textalign="center" blendmode="difference" background="false" border="false" fontsize="25" textcolor="0x7c7c7c" bold="false" effect="glow(0x7c7c7c,0.5,10,1);blur(1.8)" showtime="2.0" fadetime="2.0"
-	/>
-
 	<action name="startup">
-		showtext(get(data[text].content), textstyle);
-
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE);
 

@@ -64,14 +64,21 @@
 
 	<!-- Giro iphone ipad -->
 	<plugin name="gyro" url="%SWFPATH%/plugins/gyro.js" keep="true" enabled="true" camroll="true" friction="0.5" velastic="0.2" devices="html5" />
- 
 
+ 	<data name="text">[b][font size="20"]Загрузка... [/b][br][/font]</data>
+
+	<textstyle name="textstyle"	        
+		font="Myriad Pro" origin="center" edge="center" yoffset="-70" textalign="center" blendmode="difference" background="false" border="false" fontsize="25" textcolor="0x7c7c7c" bold="false" effect="glow(0x7c7c7c,0.5,10,1);blur(1.8)" showtime="2.0" fadetime="2.0"
+	/>
+ 
 	<!-- Skin Hotspot Style (the hotspots need a 'linkedscene' attribute to be clickable) -->
-	<style name="skin_hotspotstyle" url="spots/hotspotwhite.swf" alturl="spots/spot_arrow.png" scale="0.8" edge="top" oy="0"
+	<style name="skin_hotspotstyle" url="spots/hotspotwhite.swf" alturl="spots/spot_arrow.png" scale="1" edge="top" oy="0"
 	       onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );"
 	       onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );"
 	       altonloaded="set(crop,0|0|53|55);set(stopSequence,false);animate(skin_hotspotstyle, 0.1);"
 	       frame="0" lastframe="29" frameheight="53" framewidth="55" width="55" height="53"
+	       onover="set(autorotate.enabled,false);set(blendmode,add);"	         
+           onout="set(autorotate.enabled,true);set(blendmode,screen);"
     />
 
     <!-- Skin Tooltips Textstyle -->

@@ -3,9 +3,15 @@
 	<events 
 		onenterfullscreen="set(plugin[open_fs].y, -140); set(plugin[close_fs].y, 40)"
 		onexitfullscreen="set(plugin[open_fs].y, 40); set(plugin[close_fs].y, -140)"
-		onloadcomplete="onloadcomplete_action()"
+		onloadcomplete="skin_showloading(); onloadcomplete_action()"
+		onnewpano="skin_showloading(); skin_update_scene_infos();"
+		onremovepano="skin_showloading();"
 	/>
 	
+	<action name="skin_showloading">
+		showtext(get(data[text].content), textstyle);
+	</action>
+
 	<action name="onloadcomplete_action">
 		switch_sound();
 
