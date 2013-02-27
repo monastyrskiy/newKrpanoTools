@@ -70,7 +70,7 @@
 
 	<layer name="skin_btn_gyro"  keep="true" url="vtourskin.png" crop="0|384|64|64"  align="rightbottom"      x="240"  y="15"   scale="0.8" ondown="skin_buttonglow(get(name));" onclick="switch(plugin[skin_gyro].enabled);" onup="skin_buttonglow(null);" visible="false" devices="android|HTML5" />
 
-	<plugin name="skin_gyro"    zorder="0"  keep="true" url="%SWFPATH%/plugins/gyro.js" html5_url="%SWFPATH%/plugins/gyro.js" devices="android|HTML5" enabled="false" camroll="true" friction="0.5" velastic="0.2" onavailable="set(layer[skin_btn_gyro].visible,true);" />
+	<plugin name="skin_gyro"    zorder="0"  keep="true" url="%SWFPATH%/plugins/gyro.js" html5_url="%SWFPATH%/plugins/gyro.js" devices="android|HTML5" enabled="true" camroll="true" friction="0.5" velastic="0.2" onavailable="set(layer[skin_btn_gyro].visible, false);" />
 
 	<layer name="skin_buttonglow"  zorder="1"  keep="true" url="vtourskin.png" crop="64|384|64|64" align="center" x="0" y="1" alpha="0.0" visible="false" enabled="false" />
 

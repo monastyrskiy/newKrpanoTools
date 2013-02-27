@@ -22,7 +22,7 @@ xmltemplate_additional_file=xml/actions.xml
 xmltemplate_additional_file=xml/skin/baranov_style_skin.xml
 xmltemplate_additional_file=xml/skin/projections-contextmenu.xml
 
-#xmltemplate_additional_file=xml/skin/vtourskin.png
+xmltemplate_additional_file=xml/skin/vtourskin.png
 xmltemplate_additional_file=xml/skin/vtourskin_thumbborder.png
 xmltemplate_additional_file=xml/skin/vtourskin_hotspot.png
 xmltemplate_additional_file=xml/skin/vtourskin_mapspot.png
