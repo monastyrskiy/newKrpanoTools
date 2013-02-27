@@ -4,10 +4,30 @@
 		onenterfullscreen="set(plugin[open_fs].y, -140); set(plugin[close_fs].y, 40)"
 		onexitfullscreen="set(plugin[open_fs].y, 40); set(plugin[close_fs].y, -140)"
 		onloadcomplete="skin_showloading(); onloadcomplete_action()"
-		onnewpano="skin_showloading(); skin_update_scene_infos();"
+		onnewpano="skin_showloading();"
 		onremovepano="skin_showloading();"
 	/>
 	
+    <!--Sequence animation-->
+    <action name="animate">
+		if (stopSequence == false,
+			inc(hotspot[%1].frame,1,get(hotspot[%1].lastframe),0);
+			mul(hotspot[%1].ypos,hotspot[%1].frame,hotspot[%1].frameheight);
+			txtadd(hotspot[%1].crop,'0|',get(hotspot[%1].ypos),'|',get(hotspot[%1].framewidth),'|',get(hotspot[%1].frameheight));
+			delayedcall(%2, animate(%1,%2) );
+		);
+	</action>
+
+	<action name="skin_buttonglow">
+		if(%1 != null,
+			set(layer[skin_buttonglow].parent, %1);
+			set(layer[skin_buttonglow].visible, true);
+			tween(layer[skin_buttonglow].alpha, 0.7, 0.07);
+		  ,
+			tween(layer[skin_buttonglow].alpha, 0.0, 0.1, default, set(layer[skin_buttonglow].parent, null); set(layer[skin_buttonglow].visible, false); );
+		  );
+	</action>
+
 	<action name="skin_showloading">
 		showtext(get(data[text].content), textstyle);
 	</action>
@@ -169,13 +189,15 @@
 	<action name="rotate_on">
       set(plugin[rotate_on].y, 40);
       set(plugin[rotate_off].y, -140);
-      switch(autorotate.enabled); 
+      switch(autorotate.enabled);
+      set(autorotate_status, true);
     </action>
 
     <action name="rotate_off">
       set(plugin[rotate_off].y, 40);
       set(plugin[rotate_on].y, -140);   
       switch(autorotate.enabled);
+      set(autorotate_status, false);
     </action>
 
 	<autorotate

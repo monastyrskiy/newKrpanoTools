@@ -20,6 +20,9 @@
 	</layer>
 
 	<action name="startup">
+		set(dragmode, false);
+		set(fullscreen, false);
+		
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE);
 
@@ -40,7 +43,7 @@
 		set(sound_state, false);
 		
 		if(sound_state == true, sound_on());
-		set(dragmode, false);
+		if(autorotate.enabled, set(autorotate_status, true, false));
 	</action>
 
 	[SCENES]
