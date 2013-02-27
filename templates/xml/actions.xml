@@ -3,7 +3,7 @@
 	<events 
 		onenterfullscreen="set(plugin[open_fs].y, -140); set(plugin[close_fs].y, 40)"
 		onexitfullscreen="set(plugin[open_fs].y, 40); set(plugin[close_fs].y, -140)"
-		onloadcomplete="skin_showloading(); onloadcomplete_action()"
+		onloadcomplete="skin_showloading(); if(firstTime, onloadcomplete_action())"
 		onnewpano="skin_showloading();"
 		onremovepano="skin_showloading();"
 	/>
@@ -33,6 +33,7 @@
 	</action>
 
 	<action name="onloadcomplete_action">
+		set(firstTime, false);
 		switch_sound();
 
 		tween(layer[skin_logo].y, 40);		

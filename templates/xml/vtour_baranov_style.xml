@@ -22,6 +22,7 @@
 	<action name="startup">
 		set(dragmode, false);
 		set(fullscreen, false);
+		set(firstTime, true);
 		
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE);
