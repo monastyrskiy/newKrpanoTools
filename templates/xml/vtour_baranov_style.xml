@@ -1,6 +1,7 @@
 <krpano version="1.0.8.15" title="Virtual Tour" onstart="startup();">
 
 	<include url="actions.xml"/>
+	<include url="slider.xml"/>
 	<include url="skin/baranov_style_skin.xml"/>
 	<include url="skin/projections-contextmenu.xml"/>
 
@@ -44,7 +45,7 @@
 		set(sound_state, false);
 		
 		if(sound_state == true, sound_on());
-		if(autorotate.enabled, set(autorotate_status, true, false));
+		if(autorotate.enabled, set(autorotate_status, true), set(autorotate_status, false));
 	</action>
 
 	[SCENES]

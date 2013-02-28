@@ -19,6 +19,7 @@ xmltemplate_view=xml/vtour_viewtemplate.xml
 xmltemplate_hotspot=xml/vtour_hotspottemplate.xml
 
 xmltemplate_additional_file=xml/actions.xml
+xmltemplate_additional_file=xml/slider.xml
 xmltemplate_additional_file=xml/skin/baranov_style_skin.xml
 xmltemplate_additional_file=xml/skin/projections-contextmenu.xml
 
@@ -56,7 +57,7 @@ xmltemplate_additional_file=xml/skin/btn_sound_on.jpg
 xmltemplate_additional_file=xml/skin/btn_sound_off.jpg
 xmltemplate_additional_file=xml/skin/androidbuttons.png
 
-xmltemplate_additional_file=xml/krpano_default_flares.jpg
+xmltemplate_additional_file=xml/skin/krpano_default_flares.jpg
 
 xmltemplate_additional_file=xml/skin/drag-cursors.png
 xmltemplate_additional_file=xml/skin/qtvr-cursors.png

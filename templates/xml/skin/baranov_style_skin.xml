@@ -79,12 +79,19 @@
 	<textstyle name="textstyle"	        
 		font="Myriad Pro" origin="center" edge="center" yoffset="-70" textalign="center" blendmode="difference" background="false" border="false" fontsize="25" textcolor="0x7c7c7c" bold="false" effect="glow(0x7c7c7c,0.5,10,1);blur(1.8)" showtime="2.0" fadetime="2.0"
 	/>
+
+	<progress showload="" showwait="loopings()" />
+
+	<lensflareset name="DEFAULT" url="%SWFPATH%/skin/krpano_default_flares.jpg">
+
+	</lensflareset>
+
  
 	<style name="skin_hotspotstyle"
 			url="%SWFPATH%/skin/spots/hotspotwhite.swf"
 			alturl="%SWFPATH%/skin/spots/spot_arrow.png"
-			scale="1.3"
-			altscale="1.3"
+			scale="1.4"
+			altscale="1.4"
 			frame="0" 
 			lastframe="29" 
 			frameheight="53" 
@@ -93,10 +100,11 @@
 			width="55"
 			height="53"
 			devices="all"
-			onclick="if(linkedscene, tween(scale, 0.25, 0.5); tween(oy, -20, 0.5); tween(alpha, 0, 0.5); looktohotspot(); loadscene(get(linkedscene), null, MERGE|KEEPPALL, BLEND(0.5)););"
-			onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title), buttonstyle)) );"
-			onover="set(autorotate.enabled,false);set(blendmode,add);"	         
-       		onout="if(autorotate_status, set(autorotate.enabled,true);set(blendmode,screen));"
+			blendmode="screen"
+			onclick="if(linkedscene, tween(scale, 0.25, 0.5); tween(oy, -20, 0.5); tween(alpha, 0, 0.5); looktohotspot(get(name), 40, smooth(200,200,80)); loadscene(get(linkedscene), null, MERGE|KEEPPALL, BLEND(0.5)););"
+			onhover="if(skin_settings.tooltips_hotspots, showtext('Пройти', buttonstyle));"
+			onover="set(autorotate.enabled, false); set(blendmode,add);"	         
+       		onout="if(autorotate_status, set(autorotate.enabled, true)); set(blendmode,screen)"
 		/>
 
 	<!-- thumbs -->
@@ -106,7 +114,7 @@
 			parent="thumbsicon" 
 			zorder="1" 
 			capture="false" 
-			x="40" 
+			x="140" 
 			y="0" 
 			alpha="0.9" 
 			align="right" 
@@ -115,7 +123,7 @@
 			enabled="false"
 		/>
 
-		<layer name="thumbsicon" url="strap.png" zorder="0" x="40" y="0" alpha="0.7" align="right" edge="left" onclick="thumbs_onclick()"/>	
+		<layer name="thumbsicon" url="strap.png" zorder="0" x="140" y="0" alpha="0.7" align="right" edge="left" onclick="thumbs_onclick()"/>	
 		
 		<layer name="thumbbar" keep="true" type="container" align="leftbottom" width="155" height="100%" x="0" y="0" bgcolor="0x6b6b6b" bgalpha="0.7">
 			<layer name="scrollarea" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" align="center" width="155" height="100%" direction="v" onloaded="setcenter(0,0);" />
