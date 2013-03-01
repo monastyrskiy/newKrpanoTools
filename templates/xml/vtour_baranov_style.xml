@@ -12,6 +12,7 @@
 	               thumbsopened="false"
 	               tooltips_thumbs="true" tooltips_hotspots="true" tooltips_mapspots="true"
 	               controlbar_offset="20"
+	               thumbswidth="120" thumbsheight="80" thumbspadding="10"
 	               />
 
 	<!-- set optional skin logo url -->

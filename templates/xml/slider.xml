@@ -1,54 +1,81 @@
-	<krpano version="1.0.8.15">
+<krpano version="1.0.8.15">
 
-		<action name="thumbs_onclick">
-			if(layer[thumbs].state == 'closed', 
-				tween(layer[thumbs].x, 0, 1, easeOutQuint); set(layer[arrow].rotate, 180); set(layer[arrow].x, -15), 
-				tween(layer[thumbs].x, -157, 1,easeOutQuint); set(layer[arrow].rotate, 0); set(layer[arrow].x, -10)); 
-				switch(layer[thumbs].state, 'closed', 'opened');
-		</action>
+	<action name="skin_nextscene">
+		add(newsceneindex, scene[get(xml.scene)].index, %1);
+		if(newsceneindex GE 0,
+			if(newsceneindex LT scene.count,
+				txtadd(layer[skin_thumbborder].parent, 'thumb_', get(newsceneindex));
+				layer[scrollarea].scrolltocenter(get(scene[get(newsceneindex)].thumbx), get(scene[get(newsceneindex)].thumby));
+				loadscene(get(newsceneindex), null, MERGE|KEEPPLUGIN, BLEND(0.5));				
+			  );
+		  );
+	</action>
 
-		<action name="thumb_onclick">
-			loadscene(get(linkedscene), null, MERGE|KEEPPLUGIN, BLEND(0.5));
-		</action>
+	<action name="thumbs_onclick">
+		if(layer[thumbs].state == 'closed', 
+			tween(layer[thumbs].x, 0, 1, easeOutQuint); set(layer[arrow].rotate, 180); set(layer[arrow].x, -15), 
+			tween(layer[thumbs].x, -157, 1,easeOutQuint); set(layer[arrow].rotate, 0); set(layer[arrow].x, -10)); 
+			switch(layer[thumbs].state, 'closed', 'opened');
+	</action>
 
-		<action name="addthumbs">
-			mul(thumbarheight, scene.count, 140);
-			add(thumbarheight,10);
-			copy(layer[scrollarea].height, thumbarheight);
-			for(set(i, 0), i LT scene.count, inc(i),
-				txtadd(thumbname,'thumb_', get(i));
-				addlayer(get(thumbname));
-				copy(layer[get(thumbname)].url, scene[get(i)].thumburl);
-				set(layer[get(thumbname)].keep, true);
-				set(layer[get(thumbname)].parent, 'scrollarea');
-				set(layer[get(thumbname)].align, lefttop);
-				mul(thumby, i, 90);
-				add(thumby, 10);
-				copy(layer[get(thumbname)].y, thumby);
-				set(layer[get(thumbname)].x, 17);
-				set(layer[get(thumbname)].width, 120);
-				set(layer[get(thumbname)].height, 80);
-				set(layer[get(thumbname)].linkedscene, get(scene[get(i)].name) );
-				set(layer[get(thumbname)].onclick, thumb_onclick());
+	<action name="thumb_onclick">
+		lie(get(scene[get(linkedscene)].thumb_name));
+		wait(0.3);
+		set(layer[skin_thumbborder].parent, get(scene[get(linkedscene)].thumb_name));
+		loadscene(get(linkedscene), null, MERGE|KEEPPLUGIN, BLEND(0.5));
+	</action>
 
-				set(scene[get(i)].thumb_name, get(thumbname));
+	<action name="addthumbs">
+		copy(thumbwidth, skin_settings.thumbswidth);
+		copy(thumbheight, skin_settings.thumbsheight);
+		copy(thumbpadding, skin_settings.thumbspadding);
+		copy(thumbcrop, skin_settings.thumbscrop);
 
-				set(layer[get(thumbname)].onover, magnify(get(scene[get(linkedscene)].thumb_name)));
-				set(layer[get(thumbname)].onout,  lie(get(scene[get(linkedscene)].thumb_name)));
+		mul(thumbarheight, scene.count, 140);
+		add(thumbarheight, thumbpadding);
+		copy(layer[scrollarea].height, thumbarheight);
+		for(set(i, 0), i LT scene.count, inc(i),
+			txtadd(thumbname,'thumb_', get(i));
+			addlayer(get(thumbname));
+			copy(layer[get(thumbname)].url, scene[get(i)].thumburl);
+			set(layer[get(thumbname)].keep, true);
+			set(layer[get(thumbname)].parent, 'scrollarea');
+			set(layer[get(thumbname)].align, lefttop);
+			mul(thumby, i, 90);
+			add(thumby, thumbpadding);
+			copy(layer[get(thumbname)].y, thumby);
+			set(layer[get(thumbname)].x, 17);
 
-				set(layer[get(thumbname)].onhover, showtext(get(scene[get(linkedscene)].title), buttonstyle));
-			   );
-		</action>
+			add(scene[get(i)].thumbx, 7, thumbpadding);
+			copy(scene[get(i)].thumby, thumby);
 
-	    <!-- action performed when mouse hovers over a thumbnail preview -->
-	    <action name="magnify">
+			copy(layer[get(thumbname)].width, thumbwidth);
+			copy(layer[get(thumbname)].height, thumbheight);
+
+			set(layer[get(thumbname)].linkedscene, get(scene[get(i)].name) );
+			set(layer[get(thumbname)].onclick, thumb_onclick());
+
+			set(scene[get(i)].thumb_name, get(thumbname));
+			
+			set(layer[get(thumbname)].onover, magnify(get(scene[get(linkedscene)].thumb_name)));
+			set(layer[get(thumbname)].onout,  lie(get(scene[get(linkedscene)].thumb_name)));
+			
+			set(layer[get(thumbname)].onhover, showtext(get(scene[get(linkedscene)].title), buttonstyle));
+		   );
+		   set(layer[skin_thumbborder].parent, 'thumb_0');
+	</action>
+
+    <!-- action performed when mouse hovers over a thumbnail preview -->
+    <action name="magnify">
+		ifnot(layer[skin_thumbborder].parent == %1,
 			tween(layer[%1].alpha,  1.0, 0.3, easeInQuad);
 			tween(layer[%1].scale, 1.05, 0.3, easeInQuad);
-		</action>
-	    <!-- action performed when mouse goes away from a thumbnail preview -->
-	    <action name="lie">
-			tween(layer[%1].alpha, 0.8, 0.3, easeInQuad);
-			tween(layer[%1].scale, 1.0, 0.3, easeInQuad);
-		</action>
+		);
+	</action>
+    <!-- action performed when mouse goes away from a thumbnail preview -->
+    <action name="lie">
+		tween(layer[%1].alpha, 0.8, 0.3, easeInQuad);
+		tween(layer[%1].scale, 1.0, 0.3, easeInQuad);		
+	</action>
 
 </krpano>
