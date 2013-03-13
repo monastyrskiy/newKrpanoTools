@@ -4,7 +4,7 @@
 		onenterfullscreen="set(plugin[open_fs].y, -140); set(plugin[close_fs].y, 40)"
 		onexitfullscreen="set(plugin[open_fs].y, 40); set(plugin[close_fs].y, -140)"
 		onloadcomplete="skin_showloading(); if(firstTime, onloadcomplete_action())"
-		onnewpano="skin_showloading();"
+		onnewpano="skin_showloading(); set_thumbborder()"
 		onremovepano="skin_showloading();"
 	/>
 	
@@ -111,12 +111,16 @@
 
 		tween(plugin[rotate_on].y, -140);
 		tween(plugin[rotate_off].y, -140);
-		
-		tween(layer[arrow].x, 40);
-		tween(plugin[thumbsicon].x, 40);
 
 		if(layer[thumbs].state == 'opened',
-			thumbs_onclick(););
+			set(thumbs_state, true);
+			thumbs_onclick();
+			wait(0.5),
+			set(thumbs_state, false);
+		);
+		
+		tween(layer[arrow].x, 40, 0.5);
+		tween(plugin[thumbsicon].x, 40, 0.5);
 	</action>
 
 
@@ -125,8 +129,13 @@
 	<action name="showall">
 		switch_sound();
 
-		tween(layer[arrow].x, -10);
-		tween(plugin[thumbsicon].x, 0);
+		tween(layer[arrow].x, -10, 0.5);
+		tween(plugin[thumbsicon].x, 0, 0.5);
+
+		if(thumbs_state,
+			wait(0.5);
+			thumbs_onclick();
+		);
 
 		if(fullscreen, 
 			tween(plugin[close_fs].y, 40),

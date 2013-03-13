@@ -115,18 +115,18 @@
 		<layer name="thumbsicon" url="strap.png" zorder="0" x="140" y="0" alpha="0.7" align="right" edge="left" onclick="thumbs_onclick()"/>	
 		
 
-		<layer name="thumbMovePrev" devices="desktop" keep="true" zorder="3" capture="true" url="thumb_scroll.png" alpha="0.5" onover="set(alpha, 1);" onout="set(alpha,0.8);set(scrollspeed,10);" scrollspeed="10" onclick="skin_nextscene(-1);" x="48%" y="10" align="topleft" edge="top"/>
+		<layer name="thumbMovePrev" devices="desktop" keep="true" zorder="3" capture="true" url="thumb_scroll.png" alpha="0.2" onover="set(alpha, 1);" onout="set(alpha,0.2);set(scrollspeed,10);" scrollspeed="10" onclick="skin_nextscene(-1);" x="48%" y="10" align="topleft" edge="top"/>
 		
 		<layer name="arrowup" devices="desktop" url="arrow.png" parent="thumbMovePrev" capture="false" x="45.1%" y="21" alpha="0.9" align="topleft" edge="top" rotate="-90" enabled="false" zorder="4" />
 
-    	<layer name="thumbMoveNext" devices="desktop" keep="true" zorder="3" capture="true" url="thumb_scroll.png" alpha="0.5" onover="set(alpha, 1);" onout="set(alpha,0.8);set(scrollspeed,10);" scrollspeed="10" onclick="skin_nextscene(+1);" x="48%" y="10" align="bottomleft" edge="bottom"/>
+    	<layer name="thumbMoveNext" devices="desktop" keep="true" zorder="3" capture="true" url="thumb_scroll.png" alpha="0.2" onover="set(alpha, 1);" onout="set(alpha,0.2);set(scrollspeed,10);" scrollspeed="10" onclick="skin_nextscene(+1);" x="48%" y="10" align="bottomleft" edge="bottom"/>
 
 		<layer name="arrowdown" devices="desktop" url="arrow.png" parent="thumbMoveNext" capture="false" x="44.8%" y="21" alpha="0.9" align="bottomleft" edge="bottom" rotate="90" enabled="false" zorder="4" />
 
 		<layer name="skin_thumbborder" ox="-2" oy="-2" keep="true" url="vtourskin_thumbborder.png" visible="true" enabled="false" scale="0.5" zorder="4"/>
 
 		<layer name="thumbbar" keep="true" type="container" align="left" width="155" height="91%" x="0" y="0" >
-			<layer name="scrollarea" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" align="center" width="155" height="100%" direction="v" onloaded="setcenter(0,0);" />
+			<layer name="scrollarea" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" align="center" width="155" height="100%" direction="v" onloaded="skin_updatescroll();" />
 		</layer>
 	</layer>
 	
