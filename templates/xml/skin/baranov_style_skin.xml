@@ -76,6 +76,13 @@
 
  	<data name="text">[b][font size="20"]Загрузка... [/b][br][/font]</data>
 
+ 	<data name="info_text">[b][font size="26"]Изготовление виртуальных туров www.sergeybaranov.ru[/b][br][/font]</data>
+
+
+	<textstyle name="info_textstyle"	        
+		font="Myriad Pro" origin="center" edge="center" yoffset="-70" textalign="center" blendmode="normal" background="false" border="false" fontsize="25" textcolor="0x9a9a9a" bold="false" effect="glow(0x9a9a9a,0.5,10,1); blur(1.8)" showtime="3.5" fadetime="4.0"
+	/>
+
 	<textstyle name="textstyle"	        
 		font="Myriad Pro" origin="center" edge="center" yoffset="-70" textalign="center" blendmode="difference" background="false" border="false" fontsize="25" textcolor="0x7c7c7c" bold="false" effect="glow(0x7c7c7c,0.5,10,1);blur(1.8)" showtime="2.0" fadetime="2.0"
 	/>

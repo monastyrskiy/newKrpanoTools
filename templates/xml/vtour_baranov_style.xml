@@ -25,6 +25,7 @@
 		set(dragmode, false);
 		set(fullscreen, false);
 		set(firstTime, true);
+		set(thumbs_state, false);
 		
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE);
@@ -45,9 +46,66 @@
 		<!-- Звук выключен, чтобы включить - поменять false на true -->
 		set(sound_state, false);
 		
+		<!-- Число картинков в слайдре, при котором не показываются кнопки прокрутки -->
+		if(scene.count LT 6, 
+			set(layer[thumbMovePrev].visible, false);
+			set(layer[thumbMoveNext].visible, false);
+			set(layer[arrowup].visible, false);
+			set(layer[arrowdown].visible, false);
+			);
+
 		if(sound_state == true, sound_on());
 		if(autorotate.enabled, set(autorotate_status, true), set(autorotate_status, false));
 	</action>
+
+	<!-- Video
+      
+     <hotspot name="videospot"
+          url="skin/plugins/videoplayer.swf"
+          keep="false"
+          ath="-311.30" atv="-4.2"
+          zoom="true" distorted="true"
+          width="45" height="24"
+          scale="1" scale9grid="" scalechildren="false" rotate="-2"
+          rx="-7" ry="-8" rz="1.20"
+          edge="center" ox="0" oy="20"
+          crop="" ondowncrop="" onovercrop=""
+          visible="true" enabled="true" handcursor="true" capture="true" children="true"
+           zorder="0"
+          alpha="0" blendmode="normal" smoothing="true"
+           refreshrate="auto"
+           onloaded=""
+          onover=""
+          onhover="if(ispaused, showtext(Нажмите для воспроизведения, buttonstyle), showtext(Нажмите для паузы, buttonstyle));"
+          onout=""
+          ondown=""
+          onup=""
+          onclick="togglepause();"
+          buffertime="0.1"
+          details="8"
+          directionalsound="true"
+          effect=""
+          flying="0"
+          inverserotation="false"
+          iscomplete="false"
+          isvideoready="true"
+          loop="true"
+          onvideocomplete=""
+          outofrangevolume="0"
+          pausedonstart="false"
+          range="280"
+          rangefalloff="1"
+          totaltime="800"
+          updateeveryframe="true"
+          usecontentsize="false"
+          videourl="video/VESTI.flv"
+          volume="0"
+             devices="desktop"
+          />
+    
+    <events onloadcomplete="  set(hotspot[videospot].visible,true);  tween(hotspot[videospot].alpha,1); "/>
+
+	-->
 
 	[SCENES]
 

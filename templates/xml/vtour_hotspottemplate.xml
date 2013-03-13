@@ -1,6 +1,2 @@
 <!-- place your scene hotspots here -->
 
-		<!--<hotspot name="spot1_[BASENAME]" style="skin_hotspotstyle" ath="100" atv="0" linkedscene="scene_[BASENAME]" />-->
-		<!--<hotspot name="spot2_[BASENAME]" style="skin_hotspotstyle" ath="200" atv="0" linkedscene="scene_[BASENAME]" />-->
-		<!--<hotspot name="spot3_[BASENAME]" style="skin_hotspotstyle" ath="300" atv="0" linkedscene="scene_[BASENAME]" />-->
-		<!--<hotspot name="spot4_[BASENAME]" style="skin_hotspotstyle" ath="400" atv="0" linkedscene="scene_[BASENAME]" />-->
