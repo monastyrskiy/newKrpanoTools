@@ -107,6 +107,10 @@
 
 	-->
 
+	<!--
+		size="0.15" blind="0.00" blindcurve="0.00"/>
+	-->
+
 	[SCENES]
 
 </krpano>
