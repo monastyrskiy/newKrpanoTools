@@ -30,3 +30,6 @@ xmltemplate_additional_file=xml/plugins/bingmaps.js
 xmltemplate_additional_file=xml/plugins/bingmaps.license.xml
 xmltemplate_additional_file=xml/plugins/textfield.swf
 xmltemplate_additional_file=xml/plugins/gyro.js
+
+xmltemplate_additional_file=xml/skin/logo.png
+xmltemplate_additional_file=xml/skin/krpano_default_flares.jpg

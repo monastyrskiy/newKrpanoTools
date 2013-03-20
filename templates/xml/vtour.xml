@@ -1,4 +1,4 @@
-<krpano version="1.0.8.15" title="Virtual Tour" onstart="startup();">
+<krpano version="1.0.8.15" title="" onstart="startup();">
 
 	<include url="skin/vtourskin.xml" />
 
@@ -10,13 +10,37 @@
 	               controlbar_offset="20"
 	               />
 
-	<!-- set optional skin logo url -->
-	<layer name="skin_logo" url="" scale="0.25" opened_onclick="openurl('...',_blank);" />
+	<textstyle name="buttonstyle" font="Arial" fontsize="10" bold="true" italic="false" 
+	           textcolor="16777215" background="false" backgroundcolor="16777215" border="false" bordercolor="0" 
+	           alpha="1" blendmode="normal" effect="glow(0x000000,0.7,4,2);dropshadow(2,45,0x000000,3,1);" 
+	           origin="cursor" edge="bottom" textalign="none" xoffset="0" yoffset="-3" noclip="true" showtime="0.1" fadetime="0" fadeintime="0" 
+	/>
 
+	<!-- set optional skin logo url -->
+	<layer name="skin_logo"
+		url="skin/logo.png" x="40" y="40" align="righttop" scale="1" onclick="openurl('http://sergeybaranov.ru', _blank)"
+		keep="true" visible="true" onhover="showtext('Перейти на сайт', buttonstyle)">
+	</layer>
+
+	<autorotate
+		enabled  = "true"
+        waittime = "4"
+        accel    = "3"
+        speed    = "3"
+        horizon  = "0"
+        tofov    = "NaN"
+    />
+
+    <lensflareset name="DEFAULT" url="%SWFPATH%/skin/krpano_default_flares.jpg">
+
+	</lensflareset>
 
 	<action name="startup">
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE|KEEPALL);
+
+		<!-- Автопрокрутка по умолчанию включена, чтобы выключить - поменять true на false -->
+		set(autorotate.enabled, true);
 	</action>
 
 	[SCENES]

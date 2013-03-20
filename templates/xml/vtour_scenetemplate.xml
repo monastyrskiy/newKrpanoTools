@@ -1,5 +1,5 @@
 
-	<scene name="scene_[BASENAME]" title="[NAME]" show_in_slider="true" onstart=""[THUMB][GPS][DEVICE]>
+	<scene name="scene_[BASENAME]" title="" show_in_slider="true" onstart=""[THUMB][GPS][DEVICE]>
 
 		[VIEW]
 
