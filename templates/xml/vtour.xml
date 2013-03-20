@@ -37,7 +37,7 @@
 
 	<action name="startup">
 		if(startscene === null, copy(startscene,scene[0].name));
-		loadscene(get(startscene), null, MERGE|KEEPALL);
+		loadscene(get(startscene), null, MERGE);
 
 		<!-- Автопрокрутка по умолчанию включена, чтобы выключить - поменять true на false -->
 		set(autorotate.enabled, true);
