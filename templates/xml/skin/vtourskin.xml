@@ -77,6 +77,8 @@
 	<style name="skin_hotspotstyle" url="vtourskin_hotspot.png" scale="0.5" edge="top" oy="0"
 	       onclick="if(linkedscene, tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );"
 	       onhover="if(skin_settings.tooltips_hotspots, if(linkedscene, showtext(get(scene[get(linkedscene)].title),SKIN_TOOLTIPS)) );"
+	       onover="set(autorotate.enabled, false);"
+	       onout="set(autorotate.enabled, true);"
 	       />
 
 	<!-- Skin Tooltips Textstyle -->
