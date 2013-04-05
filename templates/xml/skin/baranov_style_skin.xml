@@ -114,6 +114,26 @@
        		onout="if(autorotate_status, set(autorotate.enabled, true)); set(blendmode,screen)"
 		/>
 
+	<style name="skin_hotspotstyle_title"
+			url="%SWFPATH%/skin/spots/hotspotwhite.swf"
+			alturl="%SWFPATH%/skin/spots/spot_arrow.png"
+			scale="1.4"
+			altscale="1.4"
+			frame="0" 
+			lastframe="29" 
+			frameheight="53" 
+			framewidth="55" 
+			altonloaded="set(crop,0|0|53|55); set(stopSequence, false); animate(get(name), 0.1);"
+			width="55"
+			height="53"
+			devices="all"
+			blendmode="screen"
+			onclick="if(linkedscene, tween(scale, 0.25, 0.5); tween(oy, -20, 0.5); tween(alpha, 0, 0.5); looktohotspot(get(name), 40, smooth(200,200,80)); loadscene(get(linkedscene), null, MERGE|KEEPPALL, BLEND(0.5)););"
+			onhover="if(skin_settings.tooltips_hotspots, showtext(get(scene[get(linkedscene)].title), buttonstyle));"
+			onover="set(autorotate.enabled, false); set(blendmode,add);"	         
+       		onout="if(autorotate_status, set(autorotate.enabled, true)); set(blendmode,screen)"
+		/>
+
 	<!-- thumbs -->
 	<layer name="thumbs" keep="true" type="container" align="leftbottom" bgcolor="0x6b6b6b" bgalpha="0.7" width="155" height="100%" x="-157" y="0" state="closed">		
 		

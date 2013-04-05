@@ -61,6 +61,8 @@
 		if(layer[thumbs].state == 'closed',
 			tween(plugin[arrow].x, -10)
 		);
+
+		if(thumbs_state, wait(0.7); thumbs_onclick());
 	</action>
 
 	<!-- Sound -->

@@ -25,7 +25,9 @@
 		set(dragmode, false);
 		set(fullscreen, false);
 		set(firstTime, true);
-		set(thumbs_state, false);
+		
+		<!-- Слайдер при загрузке открыт - true, закрыт - false -->
+		set(thumbs_state, true);
 		
 		if(startscene === null, copy(startscene,scene[0].name));
 		loadscene(get(startscene), null, MERGE);
