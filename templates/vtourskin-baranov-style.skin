@@ -23,6 +23,7 @@ xmltemplate_additional_file=xml/slider.xml
 xmltemplate_additional_file=xml/skin/baranov_style_skin.xml
 xmltemplate_additional_file=xml/skin/projections-contextmenu.xml
 
+
 xmltemplate_additional_file=xml/skin/vtourskin.png
 xmltemplate_additional_file=xml/skin/vtourskin_thumbborder.png
 xmltemplate_additional_file=xml/skin/vtourskin_hotspot.png
@@ -37,8 +38,8 @@ xmltemplate_additional_file=xml/plugins/textfield.swf
 xmltemplate_additional_file=xml/plugins/gyro.js
 xmltemplate_additional_file=xml/plugins/soundinterface.js
 xmltemplate_additional_file=xml/plugins/soundinterface.swf
-xmltemplate_additional_file=xml/plugins/scrollarea.js
-xmltemplate_additional_file=xml/plugins/scrollarea.swf
+xmltemplate_additional_file=xml/plugins/combobox.js
+xmltemplate_additional_file=xml/plugins/combobox.swf
 
 # Buttons
 xmltemplate_additional_file=xml/skin/btn_up.jpg

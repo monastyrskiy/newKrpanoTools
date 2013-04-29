@@ -1,5 +1,5 @@
 
-	<scene name="scene_[BASENAME]" title="" box_tex="" show_in_slider="true" onstart="select_box_item(scene_[BASENAME]);" [THUMB][GPS][DEVICE]>
+	<scene name="scene_[BASENAME]" title="" box_text="" show_in_slider="true" onstart="select_box_item(scene_[BASENAME]);" [THUMB][GPS][DEVICE]>
 
 		[VIEW]
 

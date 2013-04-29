@@ -145,6 +145,14 @@
 		</layer>
 	</krpano>
 
+	<!-- combobox plugin -->
+	<plugin name="box" keep="true"
+	        url="%SWFPATH%/plugins/combobox.swf"
+	        alturl="%SWFPATH%/plugins/combobox.js" native="false"
+	        align="lefttop" x="20" y="40"
+	        onloaded="fill_with_scenes();"
+	        onhover="showtext('Быстрый переход', buttonstyle)"
+	        />
 
 	<!-- Skin Actions -->
 
@@ -429,4 +437,22 @@
 		  );
 	</action>
 
+	<!-- an action for automatically fill the combobox with all scenes -->
+	<action name="fill_with_scenes">
+		for(set(i,0), i LT scene.count, inc(i),
+			if(scene[get(i)].box_text,
+			txtadd(itemcall, 'loadscene(',get(scene[get(i)].name),',null, MERGE|KEEPPALL, BLEND(1));');
+			addIdItem(get(scene[get(i)].name), get(scene[get(i)].box_text), get(itemcall));
+			);
+		);
+	</action>
+
+	<!-- an action for updating the combobox when the scene was changed -->
+	<action name="select_box_item">
+		if(plugin[box].loaded,
+			plugin[box].selectIdItem(%1);
+		  ,
+			delayedcall(0.1, select_box_item(%1));
+		  );
+	</action>
 </krpano>
