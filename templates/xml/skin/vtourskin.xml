@@ -149,9 +149,11 @@
 	<plugin name="box" keep="true"
 	        url="%SWFPATH%/plugins/combobox.swf"
 	        alturl="%SWFPATH%/plugins/combobox.js" native="false"
-	        align="lefttop" x="20" y="40"
+	        align="lefttop" x="50" y="40"
 	        onloaded="fill_with_scenes();"
 	        onhover="showtext('Быстрый переход', buttonstyle)"
+	        onover="openList()"
+	        rowcount="30"
 	        />
 
 	<!-- Skin Actions -->
