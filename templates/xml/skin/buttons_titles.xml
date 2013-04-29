@@ -1,0 +1,23 @@
+<krpano version="1.0.8.15">
+
+	<action name="buttons_titles">
+		set(layer[skin_btn_lt].onhover, showtext('Влево', buttonstyle));
+		set(layer[skin_btn_rt].onhover, showtext('Вправо', buttonstyle));
+		set(layer[skin_btn_up].onhover, showtext('Вверх', buttonstyle));
+		set(layer[skin_btn_dn].onhover, showtext('Вниз', buttonstyle));
+
+		set(layer[skin_btn_in].onhover, showtext('Приблизить', buttonstyle));
+		set(layer[skin_btn_ou].onhover, showtext('Отдалить', buttonstyle));
+
+		set(layer[skin_btn_fs].onhover, showtext('На полный экран', buttonstyle));
+
+		set(layer[skin_btn_hide].onhover, showtext('Спрятать все', buttonstyle));
+		set(layer[skin_btn_show].onhover, showtext('Показать все', buttonstyle));
+
+		set(layer[skin_btn_prev].onhover, showtext('Предыдущая панорама', buttonstyle));
+		set(layer[skin_btn_next].onhover, showtext('Следующая панорама', buttonstyle));
+
+		set(layer[skin_btn_thumbs].onhover, showtext('Показать список панорам', buttonstyle));
+	</action>
+
+</krpano>

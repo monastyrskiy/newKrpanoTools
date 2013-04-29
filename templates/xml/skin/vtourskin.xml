@@ -60,7 +60,7 @@
 	<!-- Skin Events -->
 
 	<events name="skin_events" keep="true"
-	        onxmlcomplete="skin_startup(); set(events[skin_events].onxmlcomplete,null);"
+	        onxmlcomplete="skin_startup(); set(events[skin_events].onxmlcomplete,null); buttons_titles();"
 	        onnewpano="skin_showloading(true); skin_update_scene_infos();"
 	        onremovepano="skin_showloading(true);"
 	        onloadcomplete="skin_showloading(false);"

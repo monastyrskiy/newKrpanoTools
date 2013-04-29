@@ -1,6 +1,7 @@
 <krpano version="1.0.8.15" title="" onstart="startup();">
 
 	<include url="skin/vtourskin.xml" />
+	<include url="skin/buttons_titles.xml"/>
 
 	<!-- set skin settings: bingmaps? gyro? -->
 	<skin_settings bingmaps="[HAVEGPS]" bingmaps_key="" bingmaps_zoombuttons="false"

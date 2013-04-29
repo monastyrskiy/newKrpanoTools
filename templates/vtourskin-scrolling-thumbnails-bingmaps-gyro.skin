@@ -34,5 +34,7 @@ xmltemplate_additional_file=xml/plugins/gyro.js
 xmltemplate_additional_file=xml/skin/logo.png
 xmltemplate_additional_file=xml/skin/krpano_default_flares.jpg
 
+xmltemplate_additional_file=xml/skin/butons_titles.xml
+
 xmltemplate_additional_file=xml/plugins/combobox.js
 xmltemplate_additional_file=xml/plugins/combobox.swf
