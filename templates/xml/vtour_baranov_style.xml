@@ -47,8 +47,11 @@
 
 		<!-- Звук выключен, чтобы включить - поменять false на true -->
 		set(sound_state, false);
+
+		<!-- Включает выпадающий список сцен, имена добавляются в параметр box_text в описании сцены -->
+		set(plugin[box].visible, true);
 		
-		<!-- Число картинков в слайдре, при котором не показываются кнопки прокрутки -->
+		<!-- Число картинок в слайдре, при котором не показываются кнопки прокрутки -->
 		if(scene.count LT 6, 
 			set(layer[thumbMovePrev].visible, false);
 			set(layer[thumbMoveNext].visible, false);

@@ -7,6 +7,25 @@
 		onnewpano="skin_showloading(); set_thumbborder()"
 		onremovepano="skin_showloading();"
 	/>
+
+	<!-- an action for automatically fill the combobox with all scenes -->
+	<action name="fill_with_scenes">
+		for(set(i,0), i LT scene.count, inc(i),
+			if(scene[get(i)].box_text,
+			txtadd(itemcall, 'loadscene(',get(scene[get(i)].name),',null, MERGE|KEEPPALL, BLEND(1));');
+			addIdItem(get(scene[get(i)].name), get(scene[get(i)].box_text), get(itemcall));
+			);
+		);
+	</action>
+
+	<!-- an action for updating the combobox when the scene was changed -->
+	<action name="select_box_item">
+		if(plugin[box].loaded,
+			plugin[box].selectIdItem(%1);
+		  ,
+			delayedcall(0.1, select_box_item(%1));
+		  );
+	</action>
 	
     <!--Sequence animation-->
     <action name="animate">
@@ -36,7 +55,8 @@
 		set(firstTime, false);
 		switch_sound();
 
-		tween(layer[skin_logo].y, 40);		
+		tween(layer[skin_logo].y, 40);
+		tween(layer[box].y, 40);
 		tween(plugin[in].y, 40);
 		tween(plugin[out].y, 40);
 		tween(plugin[left].y, 40);
@@ -107,6 +127,7 @@
 		
 
 		tween(layer[skin_logo].y, -140);
+		tween(layer[box].y, -140);
 
 		tween(plugin[dragmode].y, -140);
 		tween(plugin[movemode].y, -140);
@@ -165,6 +186,7 @@
 		set(plugin[showall].visible, false);
 
 		tween(layer[skin_logo].y, 40);
+		tween(layer[box].y, 40);
 	</action>
 
 	<!-- actions to change the mouse cursor image -->

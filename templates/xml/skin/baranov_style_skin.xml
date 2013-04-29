@@ -93,6 +93,14 @@
 
 	</lensflareset>
 
+	<!-- combobox plugin -->
+	<plugin name="box" keep="true"
+	        url="%SWFPATH%/plugins/combobox.swf"
+	        alturl="%SWFPATH%/plugins/combobox.js" native="false"
+	        align="lefttop" x="180" y="-140"
+	        onloaded="fill_with_scenes();"
+	        onhover="showtext('Быстрый переход', buttonstyle)"
+	        />
  
 	<style name="skin_hotspotstyle"
 			url="%SWFPATH%/skin/spots/hotspotwhite.swf"
