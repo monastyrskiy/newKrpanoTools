@@ -2,7 +2,7 @@
 
 	<!-- right-click context menu to change the viewing settings -->
 	<contextmenu>
-		<item caption="Info" 					 onclick="showtext(get(data[info_text].content), 'info_textstyle');"/>
+		<item caption="www.sergeybaranov.ru - создание виртуальных туров"		 onclick="openurl(http://www.sergeybaranov.ru, _blank);"/>
 		<item caption="FULLSCREEN" />
 		<item caption="Normal Projection"        onclick="view_normal_projection();"        separator="true" />
 		<item caption="Architectural Projection" onclick="view_architectural_projection();" />

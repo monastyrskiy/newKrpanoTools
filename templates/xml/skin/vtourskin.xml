@@ -444,7 +444,7 @@
 		for(set(i,0), i LT scene.count, inc(i),
 			if(scene[get(i)].box_text,
 			txtadd(itemcall, 'loadscene(',get(scene[get(i)].name),',null, MERGE|KEEPPALL, BLEND(1));');
-			addIdItem(get(scene[get(i)].name), get(scene[get(i)].box_text), get(itemcall));
+			plugin[box].addIdItem(get(scene[get(i)].name), get(scene[get(i)].box_text), get(itemcall));
 			);
 		);
 	</action>
