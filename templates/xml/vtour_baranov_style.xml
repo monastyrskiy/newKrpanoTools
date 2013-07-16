@@ -25,6 +25,9 @@
 		set(dragmode, false);
 		set(fullscreen, false);
 		set(firstTime, true);
+
+		<!-- Слайдер включен, чтобы выключить - поменять на false -->
+		set(show_slider, true);
 		
 		<!-- Слайдер при загрузке открыт - true, закрыт - false -->
 		set(thumbs_state, true);
@@ -39,7 +42,7 @@
 		qtvrcursor();
 		set(plugin[dragmode].y, -140);
 		
-		<!-- Кнопка звука выключена, если нужна - поменять false на true -->
+		<!-- Кнопка звука включена, если не нужна - поменять на false -->
 		set(sound_enabled, true);
 
 		<!-- Автопрокрутка по умолчанию включена, чтобы выключить - поменять true на false -->
@@ -48,8 +51,8 @@
 		<!-- Звук выключен, чтобы включить - поменять false на true -->
 		set(sound_state, false);
 
-		<!-- Включает выпадающий список сцен, имена добавляются в параметр box_text в описании сцены -->
-		set(plugin[box].visible, true);
+		<!-- Выпадающий список сцен выключен, чтобы включить - поменять на true, имена добавляются в параметр box_text в описании сцены -->
+		set(plugin[box].visible, false);
 		
 		<!-- Число картинок в слайдре, при котором не показываются кнопки прокрутки -->
 		if(scene.count LT 6, 
@@ -59,8 +62,9 @@
 			set(layer[arrowdown].visible, false);
 			);
 
-		if(sound_state == true, sound_on());
 		if(autorotate.enabled, set(autorotate_status, true), set(autorotate_status, false));
+
+		if(show_slider == false, set(layer[thumbs].visible, false););
 	</action>
 
 	<!-- Video

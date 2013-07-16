@@ -53,7 +53,6 @@
 
 	<action name="onloadcomplete_action">
 		set(firstTime, false);
-		switch_sound();
 
 		tween(layer[skin_logo].y, 40);
 		tween(layer[box].y, 40);
@@ -81,6 +80,8 @@
 		if(layer[thumbs].state == 'closed',
 			tween(plugin[arrow].x, -10)
 		);
+		
+		switch_sound();
 
 		if(thumbs_state, wait(0.7); thumbs_onclick());
 	</action>
@@ -150,8 +151,6 @@
 <!-- action SHOWALL ,    Lensflares & Hotspots -->
 	
 	<action name="showall">
-		switch_sound();
-
 		tween(layer[arrow].x, -10, 0.5);
 		tween(plugin[thumbsicon].x, 0, 0.5);
 
@@ -187,6 +186,8 @@
 
 		tween(layer[skin_logo].y, 40);
 		tween(layer[box].y, 40);
+
+		switch_sound();
 	</action>
 
 	<!-- actions to change the mouse cursor image -->
