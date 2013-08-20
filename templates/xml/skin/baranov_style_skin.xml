@@ -94,7 +94,7 @@
 	</lensflareset>
 
 	<!-- combobox plugin -->
-	<plugin name="box" keep="true"
+	<plugin name="box" keep="true" devices="desktop"
 	        url="%SWFPATH%/plugins/combobox.swf"
 	        alturl="%SWFPATH%/plugins/combobox.js" native="false"
 	        align="lefttop" x="180" y="-140"
