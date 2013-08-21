@@ -33,7 +33,6 @@
     />
 
     <lensflareset name="DEFAULT" url="%SWFPATH%/skin/krpano_default_flares.jpg">
-
 	</lensflareset>
 
 	<action name="startup">

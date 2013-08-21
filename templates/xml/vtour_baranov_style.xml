@@ -65,6 +65,9 @@
 		if(autorotate.enabled, set(autorotate_status, true), set(autorotate_status, false));
 
 		if(show_slider == false, set(layer[thumbs].visible, false););
+
+	    <!-- Чтобы скрыть логотип - поменять true на false -->
+  		set(layer[skin_logo].visible, true);
 	</action>
 
 	<!-- Video
@@ -113,7 +116,6 @@
           />
     
     <events onloadcomplete="  set(hotspot[videospot].visible,true);  tween(hotspot[videospot].alpha,1); "/>
-
 	-->
 
 	<!--
