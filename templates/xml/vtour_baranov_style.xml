@@ -66,6 +66,8 @@
 
 		if(show_slider == false, set(layer[thumbs].visible, false););
 
+		if(sound_state == true, playsound(auto, %SWFPATH%/music/music.mp3, 0););
+
 	    <!-- Чтобы скрыть логотип - поменять true на false -->
   		set(layer[skin_logo].visible, true);
 	</action>
